@@ -2,73 +2,45 @@ import React, { useState } from "react";
 import RetiroNequi from "./components/RetiroNequi";
 import RetiroAhorro from "./components/RetiroAhorro";
 import RetiroCuenta from "./components/RetiroCuenta";
+import "./styles/menu.css"; // importamos el css
 
 function App() {
   const [opcion, setOpcion] = useState(null);
 
   return (
-    <div style={{ padding: "30px", textAlign: "center" }}>
-      <h1>Cajero Automático</h1>
+    <div className="app-container">
+      <h1 className="titulo">Cajero Automático</h1>
 
-      {/* Mostrar menú si no se eligió opción */}
       {!opcion && (
-        <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginTop: "30px" }}>
+        <div className="menu-container">
           {/* Tarjeta Nequi */}
-          <div
-            onClick={() => setOpcion("nequi")}
-            style={{
-              border: "1px solid #ccc",
-              borderRadius: "12px",
-              padding: "20px",
-              width: "200px",
-              cursor: "pointer",
-              background: "#f8f8f8",
-            }}
-          >
-            <h3>Retiro Nequi</h3>
-            <p>Con celular y clave temporal</p>
+          <div className="menu-card" onClick={() => setOpcion("nequi")}>
+            <img src="/iconos/nequi.png" alt="Nequi" className="menu-img" />
+            <h3 className="menu-title">Retiro Nequi</h3>
+            <p className="menu-text">Con celular y clave temporal</p>
           </div>
 
           {/* Tarjeta Ahorro */}
-          <div
-            onClick={() => setOpcion("ahorro")}
-            style={{
-              border: "1px solid #ccc",
-              borderRadius: "12px",
-              padding: "20px",
-              width: "200px",
-              cursor: "pointer",
-              background: "#f8f8f8",
-            }}
-          >
-            <h3>Ahorro a la Mano</h3>
-            <p>Con número especial y clave</p>
+          <div className="menu-card" onClick={() => setOpcion("ahorro")}>
+            <img src="/iconos/ahorro.png" alt="Ahorro" className="menu-img" />
+            <h3 className="menu-title">Ahorro a la Mano</h3>
+            <p className="menu-text">Con número especial y clave</p>
           </div>
 
           {/* Tarjeta Cuenta */}
-          <div
-            onClick={() => setOpcion("cuenta")}
-            style={{
-              border: "1px solid #ccc",
-              borderRadius: "12px",
-              padding: "20px",
-              width: "200px",
-              cursor: "pointer",
-              background: "#f8f8f8",
-            }}
-          >
-            <h3>Cuenta de Ahorros</h3>
-            <p>Con número de cuenta</p>
+          <div className="menu-card" onClick={() => setOpcion("cuenta")}>
+            <img src="/iconos/cuenta.png" alt="Cuenta" className="menu-img" />
+            <h3 className="menu-title">Cuenta de Ahorros</h3>
+            <p className="menu-text">Con número de cuenta</p>
           </div>
         </div>
       )}
 
-      {/* Mostrar el componente según la opción */}
-      <div style={{ marginTop: "40px" }}>
+      <div className="retiro-container">
         {opcion === "nequi" && (
           <>
             <RetiroNequi />
-            <button onClick={() => setOpcion(null)} style={{ marginTop: "20px" }}>
+            <button className="btn-volver" onClick={() => setOpcion(null)}>
               Volver
             </button>
           </>
@@ -76,7 +48,7 @@ function App() {
         {opcion === "ahorro" && (
           <>
             <RetiroAhorro />
-            <button onClick={() => setOpcion(null)} style={{ marginTop: "20px" }}>
+            <button className="btn-volver" onClick={() => setOpcion(null)}>
               Volver
             </button>
           </>
@@ -84,7 +56,7 @@ function App() {
         {opcion === "cuenta" && (
           <>
             <RetiroCuenta />
-            <button onClick={() => setOpcion(null)} style={{ marginTop: "20px" }}>
+            <button className="btn-volver" onClick={() => setOpcion(null)}>
               Volver
             </button>
           </>
