@@ -11,9 +11,9 @@ class CalculadoraAcarreo {
   acarreo(matriz, monto) {
     let sumador = 0;
     let recorrido = [];
+    let maxIteraciones = 1000;
 
-
-    while (sumador < monto) {
+    while (sumador < monto && maxIteraciones > 0) {
       for (let i = 0; i < matriz.length; i++) {
         for (let j = 0; j < matriz[i].length; j++) {
           let valor = matriz[i][j];
@@ -28,7 +28,7 @@ class CalculadoraAcarreo {
           }
         }
       }
-
+      maxIteraciones--;
     }
 
     return { exito: false, billetes: recorrido };
@@ -50,6 +50,10 @@ class CalculadoraAcarreo {
     return billetes;
   }
 
+  validarMonto(monto) {
+
+    return monto % 10000 === 0 && monto <= 10000000;
+  }
 }
 
 export default CalculadoraAcarreo;
