@@ -1,0 +1,250 @@
+/* ===== Reset global ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+  background: linear-gradient(135deg, #1f2937, #4b5563);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ======= Layout general ======= */
+.cajero-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1f2937, #4b5563); /* gris oscuro */
+  padding: 1rem;
+}
+
+.cajero-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  color: black;
+}
+
+/* ======= Títulos ======= */
+.cajero-card h1,
+.cajero-card h2 {
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+/* ======= Inputs ======= */
+.cajero-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+.cajero-title {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centra imagen + texto */
+  gap: 10px; /* espacio entre imagen y texto */
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.input-hint {
+  display: block;
+text-align: left;   
+}
+
+.cajero-icon {
+  width: 3em;   /* relativo al tamaño del texto */
+  height: 3em;
+  object-fit: contain;
+}
+
+.cajero-input:focus {
+  border-color: #6366f1; /* morado al hacer focus */
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* ======= Botones ======= */
+.cajero-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* espacio entre imagen y texto */
+  margin-bottom: 1rem;
+}
+
+.btn-icon {
+  width: 3em;   /* relativo al tamaño del texto */
+  height: 3em;
+  object-fit: contain;
+}
+
+
+
+/* Botones por tipo de retiro */
+.btn-nequi {
+  background: linear-gradient(90deg, #7c3aed, #5b21b6);
+}
+.btn-nequi:hover {
+  background: linear-gradient(90deg, #6d28d9, #4c1d95);
+}
+
+.btn-ahorro {
+  background: linear-gradient(90deg, #059669, #065f46);
+}
+.btn-ahorro:hover {
+  background: linear-gradient(90deg, #047857, #064e3b);
+}
+
+.btn-cuenta {
+  background: linear-gradient(90deg, #ea580c, #b91c1c);
+}
+.btn-cuenta:hover {
+  background: linear-gradient(90deg, #c2410c, #991b1b);
+}
+
+/* Botones de acciones */
+.btn-primary {
+  background: #2563eb;
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  background: #6b7280;
+}
+.btn-secondary:hover {
+  background: #4b5563;
+}
+
+.btn-monto {
+  background: #e5e7eb;
+  color: #111827;
+}
+.btn-monto:hover {
+  background: #d1d5db;
+}
+
+/* ======= Grid para montos ======= */
+.monto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ======= Caja de clave temporal ======= */
+.clave-box {
+  background: #ede9fe;
+  border: 1px solid #c4b5fd;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.clave-box p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #4c1d95;
+}
+
+.clave {
+  font-size: 1.5rem;
+  font-family: monospace;
+  font-weight: bold;
+  color: #4c1d95;
+}
+
+/* ======= Errores ======= */
+.cajero-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+  padding: 0.7rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ======= Resultado ======= */
+.resultado-box {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.resultado-box pre {
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin-bottom: 0.6rem;
+}
+.billete-row {
+  background-color: #ffffff; /* blanco para contraste */
+  color: #000000; /* texto negro siempre visible */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+/* NEQUI */
+.billete-row.nequi .cantidad {
+  color: #6b21a8; /* morado */
+  font-weight: bold;
+}
+
+/* Ahorro a la Mano */
+.billete-row.ahorro .cantidad {
+  color: #15803d; /* verde */
+  font-weight: bold;
+}
+
+/* Cuenta de Ahorros */
+.billete-row.cuenta .cantidad {
+  color: #c2410c; /* naranja */
+  font-weight: bold;
+}
+/* Pantalla de resultado */
+.resultado-box {
+  background-color: #fff;  /* Fondo blanco */
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: monospace; /* estilo de ticket */
+}
+
+.resultado-box pre {
+  color: #222;   /* Gris oscuro */
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+
+.resultado-box p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+}
